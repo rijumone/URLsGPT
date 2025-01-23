@@ -92,8 +92,7 @@ def main():
                 
             except Exception as e:
                 st.error(f"Error fetching webpage: {str(e)}")
-            return
-    # import pdb; pdb.set_trace()
+                st.stop()
     
         # _tf.write(uploaded_file.getvalue())
 

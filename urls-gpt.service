@@ -1,0 +1,16 @@
+[Unit]
+Description=URLsGPT Service (with tmux)
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/bin/bash -c 'source /home/admin/Kitchen/URLsGPT/.env && /home/admin/Kitchen/URLsGPT/.tmux_manager.sh urls-gpt /home/admin/Kitchen/URLsGPT start'
+ExecStop=/bin/bash -c '/home/admin/Kitchen/URLsGPT/.tmux_manager.sh urls-gpt /home/admin/Kitchen/URLsGPT stop'
+Restart=on-failure
+RemainAfterExit=yes
+User=admin
+TimeoutSec=150
+WorkingDirectory=/home/admin/Kitchen/URLsGPT
+
+[Install]
+WantedBy=multi-user.target
